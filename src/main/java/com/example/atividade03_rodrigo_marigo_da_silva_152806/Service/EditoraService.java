@@ -24,4 +24,8 @@ public class EditoraService {
     public Editora getEditoraById(int id){
         return repository.findById(id).get();
     }
+
+    public void remover(Editora editora){
+        repository.delete(editora);
+    }
 }   
