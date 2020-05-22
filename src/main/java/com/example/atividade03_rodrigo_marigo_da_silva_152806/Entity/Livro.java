@@ -18,7 +18,7 @@ public class Livro implements Serializable{
     @Id
     @NonNull
     @GeneratedValue(strategy=GenerationType.AUTO) //gera a chave automaticamente
-    @Column(name="id")
+    @Column(name="id_livro")
     private int id;
 
     @NonNull
@@ -28,7 +28,7 @@ public class Livro implements Serializable{
     private int num_paginas;
 
     @NonNull
-    private String editora;
+    private Editora editora;
 
     @NonNull
     private List<Autor> autor;
@@ -57,13 +57,13 @@ public class Livro implements Serializable{
         this.num_paginas = num_paginas;
     }
 
-    public String getEditora() {
+    public Editora getEditora() {
         return this.editora;
     }
 
-    public void setEditora(String editora) {
+    public void setEditora(Editora editora) {
         this.editora = editora;
-    }
+    }    
 
     public List<Autor> getAutor() {
         return this.autor;
@@ -83,5 +83,5 @@ public class Livro implements Serializable{
             ", autor='" + getAutor() + "'" +
             "}";
     }
-    
+
 }

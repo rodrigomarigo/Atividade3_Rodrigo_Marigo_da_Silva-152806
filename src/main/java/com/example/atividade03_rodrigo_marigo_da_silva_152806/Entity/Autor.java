@@ -18,7 +18,7 @@ public class Autor implements Serializable{
     @Id
     @NonNull
     @GeneratedValue(strategy=GenerationType.AUTO) //gera a chave automaticamente
-    @Column(name="id")
+    @Column(name="id_autor")
     private int id;
 
     @NonNull
