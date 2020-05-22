@@ -14,8 +14,8 @@
 
     <!-- Formulário para cadastrar novo livro -->
     <form th:action="@{/salvarLivro}" th:object="${livro}" method="POST">
-        <label>Nome: </label>
-        <input type="text" placeholder="Digite o nome" name="nome" required/>
+        <label>Título: </label>
+        <input type="text" placeholder="Digite o nome" name="titulo" required/>
 
         <label>Núm Páginas: </label>
         <input type="number" placeholder="Digite o núm de páginas" name="num_paginas" required/>
@@ -55,7 +55,7 @@
 
             <tr th:each="livro : ${livros}">
                 <td th:text="${livro.id}"></td>
-                <td th:text="${livro.nome}"></td>
+                <td th:text="${livro.titulo}"></td>
                 <td th:text="${livro.editora}"></td>
                 <td th:text="${livro.num_paginas}"></td>
                 <td> <a th:href="@{'/detalhesLivro/' + ${livro.id}}">Detalhes</a></td>
