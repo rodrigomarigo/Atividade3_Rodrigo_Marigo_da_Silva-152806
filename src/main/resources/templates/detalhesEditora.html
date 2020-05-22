@@ -8,6 +8,8 @@
 <body>
     <h1>Detalhes Editora</h1>
     <a href="/">Menu</a>
+    <a href="/livros">Livros</a>
+    <a href="/autores">Autores</a>
     <a href="/editoras">Editoras</a>
 
     <br>
@@ -31,7 +33,7 @@
        
         <tr th:each="livro : ${editora.livros}">
             <td th:text="${livro.id}"></td>
-            <td th:text="${livro.nome}"></td>
+            <td th:text="${livro.titulo}"></td>
             <td th:text="${livro.num_paginas}"></td>
             <td> <a th:href="@{'/detalhesLivro/' + ${livro.id}}">Detalhes</a></td>
         </tr>

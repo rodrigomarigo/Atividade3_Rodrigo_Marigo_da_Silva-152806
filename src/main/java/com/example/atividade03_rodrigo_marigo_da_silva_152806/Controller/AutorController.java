@@ -42,7 +42,7 @@ public class AutorController {
         return "redirect:/autores";
     }
 
-    @PostMapping("/associarLivroAutor")
+    @PostMapping("/associarAutorLivro")
     public String associarLivro(@ModelAttribute Livro livro, @RequestParam Integer idAutor) {
         Autor autor = autorService.getAutorById(idAutor);
         livro = livroService.getLivroById(livro.getId());
@@ -53,7 +53,7 @@ public class AutorController {
         return "redirect:/detalhesAutor/" + idAutor;
     }
 
-    @GetMapping("/detalhesControle/{codigo}")
+    @GetMapping("/detalhesAutor/{codigo}")
     public ModelAndView getLivroDetalhes(@PathVariable(name = "codigo") Integer codigo) {
 
         Autor autor = autorService.getAutorById(codigo);

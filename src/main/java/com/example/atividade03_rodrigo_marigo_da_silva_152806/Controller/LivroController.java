@@ -71,15 +71,18 @@ public class LivroController {
         return "redirect:/detalhesLivro/" + idLivro;
     }
 
-    @GetMapping("/detalhesLivro/{codigo}")
-    public ModelAndView getLivroDetalhes(@PathVariable(name = "codigo") Integer codigo) {
+    @GetMapping("/detalhesLivro/{id}")
+    public ModelAndView getLivroDetalhes(@PathVariable(name = "id") Integer id) {
 
-        Livro livro = livroService.getLivroById(codigo);
-        ModelAndView mv = new ModelAndView("detalhesLivro");
+        Livro livro = livroService.getLivroById(id);
+        ModelAndView mv = new ModelAndView("detalhesLivro");    
         mv.addObject("livro", livro);
         List<Autor> autoresNaoAssociados = autorService.getAutores();
         autoresNaoAssociados.removeAll(livro.getAutor());
         mv.addObject("autores", autoresNaoAssociados);
+        List<Editora> editorasNaoAssociadas = editoraService.getEditoras();
+        editorasNaoAssociadas.remove(livro.getEditora());
+        mv.addObject("editoras", editorasNaoAssociadas);
 
         return mv;
     }

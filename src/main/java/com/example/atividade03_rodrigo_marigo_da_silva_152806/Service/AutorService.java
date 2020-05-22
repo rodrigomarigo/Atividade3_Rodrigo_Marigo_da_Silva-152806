@@ -5,10 +5,12 @@ import java.util.List;
 import com.example.atividade03_rodrigo_marigo_da_silva_152806.Entity.Autor;
 import com.example.atividade03_rodrigo_marigo_da_silva_152806.Repository.AutorRepository;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class AutorService {
+    @Autowired
     private AutorRepository repository;
 
     public List<Autor> getAutores(){
