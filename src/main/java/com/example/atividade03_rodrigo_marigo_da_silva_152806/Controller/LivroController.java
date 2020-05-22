@@ -3,6 +3,7 @@ package com.example.atividade03_rodrigo_marigo_da_silva_152806.Controller;
 import java.util.List;
 
 import com.example.atividade03_rodrigo_marigo_da_silva_152806.Entity.Autor;
+import com.example.atividade03_rodrigo_marigo_da_silva_152806.Entity.Editora;
 import com.example.atividade03_rodrigo_marigo_da_silva_152806.Entity.Livro;
 import com.example.atividade03_rodrigo_marigo_da_silva_152806.Service.AutorService;
 import com.example.atividade03_rodrigo_marigo_da_silva_152806.Service.EditoraService;
@@ -54,6 +55,17 @@ public class LivroController {
         autor = autorService.getAutorById(autor.getId());
 
         livro.getAutor().add(autor);
+        livroService.salvar(livro);
+
+        return "redirect:/detalhesLivro/" + idLivro;
+    }
+
+    @PostMapping("/associarLivroEditora")
+    public String associarEditora(@ModelAttribute Editora editora, @RequestParam Integer idLivro) {
+        Livro livro = livroService.getLivroById(idLivro);
+        editora = editoraService.getEditoraById(editora.getId());
+
+        livro.setEditora(editora);
         livroService.salvar(livro);
 
         return "redirect:/detalhesLivro/" + idLivro;

@@ -16,11 +16,11 @@
     <b>Id Livro: </b> <span th:text="${livro.id}"></span>
     <br><b>Título: </b> <span th:text="${livro.nome}"></span>
     <br><b>Número de páginas: </b> <span th:text="${livro.num_paginas}"></span>
-    <br><b>Editora: </b> <span th:text="${livro.editora}"></span>
+    <!-- <br><b>Editora: </b> <span th:text="${livro.editora}"></span> -->
     <br>
     <br>
 
-    Autores:
+    Autores do Livro:
     <table>
         <tr>
             <th>Id</th>
@@ -46,6 +46,18 @@
             </option>
         </select>
         <input type="submit" value="Associar Autor" />
+    </form>
+
+    <form th:action="@{/associarLivroEditora(idLivro=${livro.id})}" method="POST">
+        <label><b>Editoras:</b></label>
+        <select name="id" required>
+            <option value="">Escolha a Editora</option>
+            <option th:each="editora : ${editoras}"
+                        th:value="${editora.id}"
+                        th:text="${editora.nome}">
+            </option>
+        </select>
+        <input type="submit" value="Associar Editora" />
     </form>
     
 </body>
