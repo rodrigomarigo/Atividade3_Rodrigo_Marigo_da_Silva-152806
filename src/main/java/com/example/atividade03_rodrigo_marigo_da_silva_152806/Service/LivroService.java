@@ -19,4 +19,7 @@ public class LivroService {
         repository.save(livro);
     }
     
+    public Livro getLivroById(int id){
+        return repository.findById(id).get();
+    }
 }

@@ -18,4 +18,8 @@ public class AutorService {
     public void salvar(Autor autor){
         repository.save(autor);
     }
+
+    public Autor getAutorById(int id){
+        return repository.findById(id).get();
+    }
 }
