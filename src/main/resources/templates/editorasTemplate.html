@@ -33,7 +33,7 @@
 
     <table>
         <tr>
-            <th>Id Livro</th>
+            <th>Id Editora</th>
             <th>Nome</th>
             <th>Cidade Sede</th>
             <th>Fundador</th>
@@ -41,7 +41,7 @@
 
             <tr th:each="editora : ${editoras}">
                 <td th:text="${editora.id}"></td>
-                <td th:text="${liveditoraro.nome}"></td>
+                <td th:text="${editora.nome}"></td>
                 <td th:text="${editora.cidade_sede}"></td>
                 <td th:text="${editora.fundador}"></td>
                 <td> <a th:href="@{'/detalhesEditora/' + ${editora.id}}">Detalhes</a></td>
