@@ -26,12 +26,14 @@
             <th>Id</th>
             <th>Nome</th>
             <th>Prêmios</th>
+            <th>Detalhes</th>
         </tr>
        
         <tr th:each="autor : ${livro.autores}">
             <td th:text="${autor.id}"></td>
             <td th:text="${autor.nome}"></td>
             <td th:text="${autor.num_premios}"></td>
+            <td> <a th:href="@{'/detalhesAutor/' + ${autor.id}}">Detalhes</a></td>
         </tr>
     </table>
     <br>
