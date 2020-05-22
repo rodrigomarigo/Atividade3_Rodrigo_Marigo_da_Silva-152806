@@ -37,6 +37,8 @@
             <th>Nome</th>
             <th>Cidade Sede</th>
             <th>Fundador</th>
+            <th>Remover</th>
+            <th>Editar</th>
             <th>Detalhes</th>
 
             <tr th:each="editora : ${editoras}">
@@ -44,6 +46,8 @@
                 <td th:text="${editora.nome}"></td>
                 <td th:text="${editora.cidade_sede}"></td>
                 <td th:text="${editora.fundador}"></td>
+                <td> <a th:href="@{'/removerEditora?id/=' + ${editora.id}}">Remover</a></td>  
+                <td> <a th:href="@{'/removerEditora?id/=' + ${editora.id}}">Editar</a></td>  
                 <td> <a th:href="@{'/detalhesEditora/' + ${editora.id}}">Detalhes</a></td>
             </tr>
         </tr>

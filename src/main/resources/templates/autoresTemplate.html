@@ -37,6 +37,8 @@
             <th>Nome Autor</th>
             <th>Idade</th>
             <th>Número de Prêmios</th>
+            <th>Remover</th>
+            <th>Editar</th>
             <th>Detalhes</th>
 
             <tr th:each="autor : ${autores}">
@@ -44,6 +46,8 @@
                 <td th:text="${autor.nome}"></td>
                 <td th:text="${autor.idade}"></td>
                 <td th:text="${autor.num_premios}"></td>
+                <td> <a th:href="@{'/removerAutor?id/=' + ${autor.id}}">Remover</a></td>  
+                <td> <a th:href="@{'/removerAutor?id/=' + ${autor.id}}">Editar</a></td>  
                 <td> <a th:href="@{'/detalhesAutor/' + ${autor.id}}">Detalhes</a></td>
             </tr>
         </tr>

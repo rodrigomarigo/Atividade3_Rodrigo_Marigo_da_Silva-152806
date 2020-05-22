@@ -51,6 +51,8 @@
             <th>Título</th>
             <th>Editora</th>
             <th>Número de páginas</th>
+            <th>Remover</th>
+            <th>Editar</th>
             <th>Detalhes</th>
 
             <tr th:each="livro : ${livros}">
@@ -58,6 +60,8 @@
                 <td th:text="${livro.titulo}"></td>
                 <td th:text="${livro.editora?.nome}"></td>
                 <td th:text="${livro.num_paginas}"></td>
+                <td> <a th:href="@{'/removerLivro?id/=' + ${livro.id}}">Remover</a></td>  
+                <td> <a th:href="@{'/editarLivro?id/=' + ${livro.id}}">Editar</a></td>  
                 <td> <a th:href="@{'/detalhesLivro/' + ${livro.id}}">Detalhes</a></td>
             </tr>
         </tr>
