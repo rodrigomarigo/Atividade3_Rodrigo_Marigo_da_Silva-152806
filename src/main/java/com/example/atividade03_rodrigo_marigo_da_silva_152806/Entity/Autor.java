@@ -3,7 +3,6 @@ package com.example.atividade03_rodrigo_marigo_da_silva_152806.Entity;
 import java.io.Serializable;
 import java.util.List;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -22,7 +21,6 @@ public class Autor implements Serializable{
     @Id
     @NonNull
     @GeneratedValue(strategy=GenerationType.AUTO) //gera a chave automaticamente
-    @Column(name="id_autor")
     private int id;
 
     @NonNull
