@@ -35,7 +35,6 @@ public class EditoraController {
         return mv;
     }
 
-    
     @PostMapping("/salvarEditora")
     public String salvar(@ModelAttribute Editora editora){
         editoraService.salvar(editora);

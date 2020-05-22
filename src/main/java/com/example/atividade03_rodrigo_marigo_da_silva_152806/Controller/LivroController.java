@@ -67,7 +67,7 @@ public class LivroController {
         mv.addObject("livro", livro);
         List<Autor> autoresNaoAssociados = autorService.getAutores();
         autoresNaoAssociados.removeAll(livro.getAutor());
-        mv.addObject("autores", autoresNaoAssociados)
+        mv.addObject("autores", autoresNaoAssociados);
 
         return mv;
     }
