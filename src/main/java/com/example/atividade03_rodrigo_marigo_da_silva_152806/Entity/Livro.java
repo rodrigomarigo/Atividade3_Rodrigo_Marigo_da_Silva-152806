@@ -1,18 +1,45 @@
 package com.example.atividade03_rodrigo_marigo_da_silva_152806.Entity;
 
+import java.io.Serializable;
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+import org.springframework.lang.NonNull;
 
 @Entity
-public class Livro {
+public class Livro implements Serializable{
+    private static final long serialVersionUID = 1L;
+
+    @Id
+    @NonNull
+    @GeneratedValue(strategy=GenerationType.AUTO) //gera a chave automaticamente
+    @Column(name="id")
+    private int id;
+
+    @NonNull
     private String titulo;
 
+    @NonNull
     private int num_paginas;
 
+    @NonNull
     private String editora;
 
+    @NonNull
     private List<Autor> autor;
+
+    public int getId() {
+        return this.id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getTitulo() {
         return this.titulo;
@@ -49,10 +76,12 @@ public class Livro {
     @Override
     public String toString() {
         return "{" +
-            " titulo='" + getTitulo() + "'" +
+            " id='" + getId() + "'" +
+            ", titulo='" + getTitulo() + "'" +
             ", num_paginas='" + getNum_paginas() + "'" +
             ", editora='" + getEditora() + "'" +
             ", autor='" + getAutor() + "'" +
             "}";
     }
+    
 }
