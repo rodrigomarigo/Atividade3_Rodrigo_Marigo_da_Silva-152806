@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livros</title>
+</head>
+<body>
+    <h1>Cadastro de Livros</h1>    
+    <a href="/">Menu</a>
+    
+    <br>
+    <br>
+
+    <form th:action="@{/salvarLivro}" th:object="${livro}" method="POST">
+        <label>Nome: </label>
+        <input type="text" placeholder="Digite o nome" name="nome" required/>
+
+        <label>Núm Páginas: </label>
+        <input type="number" placeholder="Digite o núm de páginas" name="num_paginas" required/>
+
+        <label>Autor: </label>
+        <select th:field="${livro.autor}" required>
+            <option value="">Escolha o autor</option>
+            <option th:each="autor : ${autores}"
+                        th:value="${autor.id}"
+                        th:text="${autor.nome}">
+            </option>
+        </select>
+
+        <label>Editora: </label>
+        <select th:field="${livro.editora}" required>
+            <option value="">Escolha a editora</option>
+            <option th:each="editora : ${editoras}"
+                        th:value="${editora.id}"
+                        th:text="${editora.nome}">
+            </option>
+        </select>
+
+
+    </form>
+</body>
+</html>

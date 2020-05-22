@@ -17,7 +17,7 @@ public class AutorController {
     private LivroService livroService;
 
     @Autowired
-    private EditoraService editoraService;
+    private EditoraService editoraService;  
 
     
 }
