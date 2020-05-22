@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes Livro</title>
+</head>
+<body>
+    <h1>Detalhes Livro</h1>
+    <a href="/">Menu</a>
+    <a href="/autores">Cursos</a>
+
+    <br>
+    <br>
+    
+    <b>Id Livro: </b> <span th:text="${livro.id}"></span>
+    <br><b>Título: </b> <span th:text="${livro.nome}"></span>
+    <br><b>Número de páginas: </b> <span th:text="${livro.num_paginas}"></span>
+    <br><b>Editora: </b> <span th:text="${livro.editora}"></span>
+    <br>
+    <br>
+
+    Autores:
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Nome</th>
+            <th>Prêmios</th>
+        </tr>
+       
+        <tr th:each="autor : ${livro.autores}">
+            <td th:text="${livro.id}"></td>
+            <td th:text="${livro.nome}"></td>
+            <td th:text="${livro.num_premios}"></td>
+        </tr>
+    </table>
+    <br>
+
+    
+</body>
+</html>
