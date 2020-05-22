@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autores</title>
+</head>
+<body>
+    <h1>Cadastro de Autores</h1>
+    <a href="/">Menu</a>
+
+
+    <br>
+    <br>
+
+    <!-- Formulário para cadastrar novo autor -->
+    <form th:action="@{/salvarAutor}" th:object="${autor}" method="POST">
+        <label>Nome: </label>
+        <input type="text" placeholder="Digite o nome" name="nome" required/>
+
+        <label>Idade: </label>
+        <input type="number" placeholder="Digite a idade (anos)" name="idade" required/>
+
+        <label>Número de Prêmios: </label>
+        <input type="number" placeholder="Digite a quantidade de prêmios" name="num_premios" required/>
+
+        <input type="submit" value="Salvar" />
+
+    </form>
+
+    <br>
+    <br>
+
+    <table>
+        <tr>
+            <th>Id Autor</th>
+            <th>Nome Autor</th>
+            <th>Idade</th>
+            <th>Número de Prêmios</th>
+            <th>Detalhes</th>
+
+            <tr th:each="autor : ${autores}">
+                <td th:text="${autor.id}"></td>
+                <td th:text="${autor.nome}"></td>
+                <td th:text="${autor.idade}"></td>
+                <td th:text="${autor.num_premios}"></td>
+                <td> <a th:href="@{'/detalhesAutor/' + ${autor.id}}">Detalhes</a></td>
+            </tr>
+        </tr>
+    </table>
+
+
+</body>
+</html>
