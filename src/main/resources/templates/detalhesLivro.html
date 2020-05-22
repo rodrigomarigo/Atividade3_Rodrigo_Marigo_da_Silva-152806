@@ -8,7 +8,7 @@
 <body>
     <h1>Detalhes Livro</h1>
     <a href="/">Menu</a>
-    <a href="/autores">Cursos</a>
+    <a href="/livros">Livros</a>
 
     <br>
     <br>
@@ -29,9 +29,9 @@
         </tr>
        
         <tr th:each="autor : ${livro.autores}">
-            <td th:text="${livro.id}"></td>
-            <td th:text="${livro.nome}"></td>
-            <td th:text="${livro.num_premios}"></td>
+            <td th:text="${autor.id}"></td>
+            <td th:text="${autor.nome}"></td>
+            <td th:text="${autor.num_premios}"></td>
         </tr>
     </table>
     <br>
