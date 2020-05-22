@@ -1,5 +1,8 @@
 package com.example.atividade03_rodrigo_marigo_da_silva_152806.Controller;
 
+import java.util.List;
+
+import com.example.atividade03_rodrigo_marigo_da_silva_152806.Entity.Autor;
 import com.example.atividade03_rodrigo_marigo_da_silva_152806.Entity.Livro;
 import com.example.atividade03_rodrigo_marigo_da_silva_152806.Service.AutorService;
 import com.example.atividade03_rodrigo_marigo_da_silva_152806.Service.EditoraService;
@@ -9,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
@@ -42,6 +46,30 @@ public class LivroController {
         livroService.salvar(livro);
 
         return "redirect:/livros";
+    }
+
+    @PostMapping("/associarLivroAutor")
+    public String associarAutor(@ModelAttribute Autor autor, @RequestParam Integer idLivro) {
+        Livro livro = livroService.getLivroById(idLivro);
+        autor = autorService.getAutorById(autor.getId());
+
+        livro.getAutor().add(autor);
+        livroService.salvar(livro);
+
+        return "redirect:/detalhesLivro/" + idLivro;
+    }
+
+    @GetMapping("/detalhesLivro/{codigo}")
+    public ModelAndView getLivroDetalhes(@PathVariable(name = "codigo") Integer codigo) {
+
+        Livro livro = livroService.getLivroById(codigo);
+        ModelAndView mv = new ModelAndView("detalhesLivro");
+        mv.addObject("livro", livro);
+        List<Autor> autoresNaoAssociados = autorService.getAutores();
+        autoresNaoAssociados.removeAll(livro.getAutor());
+        mv.addObject("autores", autoresNaoAssociados)
+
+        return mv;
     }
 
 
