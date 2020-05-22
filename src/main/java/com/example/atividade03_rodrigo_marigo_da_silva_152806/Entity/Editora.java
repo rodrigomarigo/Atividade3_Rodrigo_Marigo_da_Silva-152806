@@ -8,6 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 
 import org.springframework.lang.NonNull;
 
@@ -24,7 +26,8 @@ public class Editora implements Serializable{
     @NonNull
     private String nome;
 
-    @NonNull
+    @OneToMany
+    @JoinColumn(name = "id_editora")
     private List<Livro> livros;
 
     @NonNull

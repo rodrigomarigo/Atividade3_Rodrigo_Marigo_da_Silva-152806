@@ -8,6 +8,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.UniqueConstraint;
+import javax.persistence.JoinColumn;
 
 import org.springframework.lang.NonNull;
 
@@ -24,7 +28,13 @@ public class Autor implements Serializable{
     @NonNull
     private String nome;
 
-    @NonNull
+    @ManyToMany
+    @JoinTable(
+        name="LivroAutor", 
+        uniqueConstraints = @UniqueConstraint (columnNames = { "id_livro", "id_autor" }),
+        joinColumns        = @JoinColumn(name = "id_autor" ),
+        inverseJoinColumns = @JoinColumn(name = "id_livro")
+    )
     private List<Livro> livros;
 
     @NonNull
