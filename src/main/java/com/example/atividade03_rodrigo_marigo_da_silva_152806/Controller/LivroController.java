@@ -87,5 +87,24 @@ public class LivroController {
         return mv;
     }
 
+    @GetMapping("/removerLivro")
+    public String removerLivro(@RequestParam Integer id) {
+        Livro livro = livroService.getLivroById(id);
+        livroService.remover(livro);
+
+        return "redirect:/livros";
+    }
+    
+    @GetMapping("/editarLivro")
+    public ModelAndView editarLivro(@RequestParam Integer id){
+        ModelAndView mv = new ModelAndView("livroEdit");
+
+        Livro livro = livroService.getLivroById(id);
+        mv.addObject("livro", livro);
+        mv.addObject("editoras", editoraService.getEditoras());
+        mv.addObject("autores", autorService.getAutores());
+
+        return mv;
+    }
 
 }
