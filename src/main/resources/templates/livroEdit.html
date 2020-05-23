@@ -4,6 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editar Livro</title>
+
+    <style>
+        table, th, td {
+          border: 1px solid black;
+        }
+    </style>
 </head>
 <body>
     <a href="/">Menu</a>
@@ -24,18 +30,31 @@
         <input type="number" placeholder="Digite o número de páginas" th:value="${livro.num_paginas}" name="num_paginas" required/>
         <br>  
 
-        <label>Editora:</label>
-        <select th:field="${livro.editora}" required>
-            <option value="">Escolha a editora</option>
+        <label><b>Editoras:</b></label>
+        <select name="editora" required>
+            <option value="">Escolha a Editora</option>
             <option th:each="editora : ${editoras}"
                         th:value="${editora.id}"
                         th:text="${editora.nome}">
             </option>
         </select>
 
-        <!-- <label>Editora</label>
-        <input type="text" placeholder="Digite o número de prêmios" th:value="${autor.num_premios}" name="num_premios" required/>
-        <br>   -->
+        <!-- Autores
+        <table>
+            <tr>
+                <th>Id Autor</th>
+                <th>Nome Autor</th>
+                <th>Remover</th>
+                
+                <tr th:each="autor : ${livro.autor}">
+                    <td th:text="${autor.id}"></td>
+                    <td th:text="${autor.nome}"></td>
+                    <td> <a th:href="@{'/removerAutor?idAutor=' + ${autor.id}}">Remover</a></td> 
+                    
+                </tr>
+
+            </tr>
+        </table> -->
 
         <!-- Lista de livros pra remover -->
 

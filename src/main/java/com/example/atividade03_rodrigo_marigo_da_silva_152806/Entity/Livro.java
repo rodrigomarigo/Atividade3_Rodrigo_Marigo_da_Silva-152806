@@ -28,6 +28,7 @@ public class Livro implements Serializable{
     private String titulo;
 
     @NonNull
+    // @Min(10)
     private int num_paginas;
 
     @ManyToOne

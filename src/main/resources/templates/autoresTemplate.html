@@ -4,12 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Autores</title>
+
+    <style>
+        table, th, td {
+          border: 1px solid black;
+        }
+    </style>
 </head>
 <body>
     <h1>Cadastro de Autores</h1>
     <a href="/">Menu</a>
-
-
     <br>
     <br>
 
@@ -46,8 +50,8 @@
                 <td th:text="${autor.nome}"></td>
                 <td th:text="${autor.idade}"></td>
                 <td th:text="${autor.num_premios}"></td>
-                <td> <a th:href="@{'/removerAutor?id/=' + ${autor.id}}">Remover</a></td>  
-                <td> <a th:href="@{'/removerAutor?id/=' + ${autor.id}}">Editar</a></td>  
+                <td> <a th:href="@{'/removerAutor?id=' + ${autor.id}}">Remover</a></td>  
+                <td> <a th:href="@{'/editarAutor?id=' + ${autor.id}}">Editar</a></td>  
                 <td> <a th:href="@{'/detalhesAutor/' + ${autor.id}}">Detalhes</a></td>
             </tr>
         </tr>

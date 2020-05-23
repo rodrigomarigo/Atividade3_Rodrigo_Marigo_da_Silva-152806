@@ -71,7 +71,7 @@ public class AutorController {
         Autor autor = autorService.getAutorById(id);
         autorService.remover(autor);
 
-        return "redirect:/editoras";
+        return "redirect:/autores";
     }
 
     @GetMapping("/editarAutor")

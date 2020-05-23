@@ -12,6 +12,11 @@ import javax.persistence.ManyToMany;
 import javax.persistence.UniqueConstraint;
 import javax.persistence.JoinColumn;
 
+// bibliotecas de validaçao de dados não funcionando
+// import javax.validation.constraints.Max;
+// import javax.validation.constraints.Min;
+// import javax.validation.constraints.Size;
+
 import org.springframework.lang.NonNull;
 
 @Entity
@@ -36,9 +41,12 @@ public class Autor implements Serializable{
     private List<Livro> livros;
 
     @NonNull
+    // @Min(10)
+    // @Max(150)
     private int idade;
 
     @NonNull
+    // @Min(0)
     private int num_premios;
 
     public int getId() {

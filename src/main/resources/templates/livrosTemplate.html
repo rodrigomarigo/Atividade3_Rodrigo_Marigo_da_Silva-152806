@@ -4,6 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Livros</title>
+
+    <style>
+        table, th, td {
+          border: 1px solid black;
+        }
+    </style>
 </head>
 <body>
     <h1>Cadastro de Livros</h1>    
@@ -60,9 +66,10 @@
                 <td th:text="${livro.titulo}"></td>
                 <td th:text="${livro.editora?.nome}"></td>
                 <td th:text="${livro.num_paginas}"></td>
-                <td> <a th:href="@{'/removerLivro?id/=' + ${livro.id}}">Remover</a></td>  
-                <td> <a th:href="@{'/editarLivro?id/=' + ${livro.id}}">Editar</a></td>  
+                <td> <a th:href="@{'/removerLivro?idlivro=' + ${livro.id}}">Remover</a></td> 
+                <td> <a th:href="@{'/editarLivro?id=' + ${livro.id}}">Editar</a></td>  
                 <td> <a th:href="@{'/detalhesLivro/' + ${livro.id}}">Detalhes</a></td>
+                
             </tr>
         </tr>
     </table>

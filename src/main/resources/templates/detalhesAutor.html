@@ -4,6 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Detalhes Autor</title>
+
+    <style>
+        table, th, td {
+          border: 1px solid black;
+        }
+    </style>
 </head>
 <body>
     <h1>Detalhes Autor</h1>
@@ -34,7 +40,7 @@
        
         <tr th:each="livro : ${autor.livros}">
             <td th:text="${livro.id}"></td>
-            <td th:text="${livro.nome}"></td>
+            <td th:text="${livro.titulo}"></td>
             <td th:text="${livro.num_paginas}"></td>
             <td th:text="${livro.editora?.nome}"></td>
             <td> <a th:href="@{'/detalhesLivro/' + ${livro.id}}">Detalhes</a></td>

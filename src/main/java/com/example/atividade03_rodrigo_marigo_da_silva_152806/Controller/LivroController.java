@@ -88,8 +88,8 @@ public class LivroController {
     }
 
     @GetMapping("/removerLivro")
-    public String removerLivro(@RequestParam Integer id) {
-        Livro livro = livroService.getLivroById(id);
+    public String removerLivro(@RequestParam Integer idlivro) {
+        Livro livro = livroService.getLivroById(idlivro);
         livroService.remover(livro);
 
         return "redirect:/livros";
